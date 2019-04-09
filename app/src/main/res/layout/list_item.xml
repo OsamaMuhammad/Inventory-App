@@ -19,24 +19,43 @@
         android:layout_toRightOf="@id/product_image"
         android:textStyle="bold"
         tools:text="@string/app_name" />
+    <TextView
+        android:id="@+id/product_quantity_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/product_name"
+
+        android:layout_marginLeft="@dimen/activity_margin"
+        android:layout_toRightOf="@id/product_image"
+        android:text="Quantity:  " />
+
 
     <TextView
         android:id="@+id/product_quantity"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/product_name"
+
+        android:layout_toRightOf="@id/product_quantity_text"
+        tools:text="12" />
+
+    <TextView
+        android:id="@+id/product_price_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/product_quantity"
         android:layout_marginLeft="@dimen/activity_margin"
         android:layout_toRightOf="@id/product_image"
-        tools:text="aaaa" />
+        android:text="Price:  $" />
 
     <TextView
         android:id="@+id/product_price"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/product_quantity"
-        android:layout_marginLeft="@dimen/activity_margin"
-        android:layout_toRightOf="@id/product_image"
-        tools:text="@string/app_name" />
+
+        android:layout_toRightOf="@id/product_price_text"
+        tools:text="100" />
 
     <Button
         android:id="@+id/sell_button"

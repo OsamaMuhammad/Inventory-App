@@ -7,6 +7,7 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.LoaderManager;
 import android.support.v4.content.CursorLoader;
 import android.support.v4.content.Loader;
@@ -33,14 +34,14 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
 
 
 
-//        final FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-//        fab.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent m = new Intent(MainActivity.this, EditorActivity.class);
-//                startActivity(m);
-//            }
-//        });
+        final FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent m = new Intent(MainActivity.this, EditorActivity.class);
+                startActivity(m);
+            }
+        });
 
         View emptyView = findViewById(R.id.empty_view);
 

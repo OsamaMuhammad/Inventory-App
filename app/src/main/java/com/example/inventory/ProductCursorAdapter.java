@@ -31,7 +31,7 @@ public class ProductCursorAdapter extends CursorAdapter {
     }
 
     @Override
-    public void bindView(View view, final Context context, final Cursor cursor) {
+    public void bindView(final View view, final Context context, final Cursor cursor) {
 
         TextView name = (TextView) view.findViewById(R.id.product_name);
         TextView quantity = (TextView) view.findViewById(R.id.product_quantity);
@@ -42,17 +42,21 @@ public class ProductCursorAdapter extends CursorAdapter {
         final int quantityColIndex = cursor.getColumnIndex(ProductEntry.PRODUCT_QUANTITY);
         int priceColIndex = cursor.getColumnIndex(ProductEntry.PRODUCT_PRICE);
         int photoColIndex = cursor.getColumnIndex(ProductEntry.PRODUCT_PHOTO);
-        int idColIndex=cursor.getColumnIndex(ProductEntry._ID);
-        view.setTag(cursor.getInt(idColIndex));
-        final long id=Long.valueOf(view.getTag().toString());
+        final int idColIndex=cursor.getColumnIndex(ProductEntry._ID);
+        view.setTag(cursor.getPosition());
+
+        long id=Long.valueOf(view.getTag().toString());
 
 
         sellButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                cursor.moveToPosition(Integer.valueOf(view.getTag().toString()));
                 int quantity=cursor.getInt(quantityColIndex);
+                long currentId=cursor.getInt(idColIndex);
+
+
                 if(quantity>0){
-                    long currentId=id;
                     quantity--;
                     ContentValues values=new ContentValues();
                     values.put(ProductEntry.PRODUCT_QUANTITY,quantity);
